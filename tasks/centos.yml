@@ -9,7 +9,6 @@
   yum: name={{ item }} state=latest
   with_items:
     - logstash
-    - logstash-contrib
     - java-1.7.0-openjdk
 
 - name: centos | enabling logstash on boot and start
