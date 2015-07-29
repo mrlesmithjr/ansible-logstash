@@ -12,8 +12,9 @@ Role Variables
 --------------
 
 ````
-clear_logstash_config: false
-config_logstash: false
+# defaults file for ansible-logstash
+clear_logstash_config: false  #defines if logstash_config_dir should be cleared out
+config_logstash: false  #defines if logstash should be configured
 logstash_config_dir: /etc/logstash/conf.d
 logstash_base_configs:
   - 000_inputs
@@ -38,6 +39,7 @@ logstash_plugins:
   - logstash-filter-json_encode
   - logstash-filter-translate
   - logstash-filter-zeromq
+logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
 logstash_version: 1.5
 ````
 
