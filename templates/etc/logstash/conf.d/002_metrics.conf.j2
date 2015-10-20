@@ -7,3 +7,10 @@ filter {
     flush_interval => 60
   }
 }
+filter {
+  if "metric" in [tags] {
+    mutate {
+      replace => [ "host", "%{message}" ]
+    }
+  }
+}
