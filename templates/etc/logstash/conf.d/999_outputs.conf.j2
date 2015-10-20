@@ -1,5 +1,14 @@
 # {{ ansible_managed }}
 #
+output {
+  if "metric" in [tags] {
+    stdout {
+      codec => line {
+        format => "1m rate: %{documents.rate_1m} ( %{documents.count} )"
+      }
+    }
+  }
+}
 {% if logstash_base_outputs is defined %}
 {%   for item in logstash_base_outputs %}
 output {

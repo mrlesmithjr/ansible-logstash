@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+#
+filter {
+  metrics {
+    meter => "documents"
+    add_tag => "metric"
+    flush_interval => 60
+  }
+}

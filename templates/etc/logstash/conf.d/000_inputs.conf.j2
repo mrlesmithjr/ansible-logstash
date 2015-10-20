@@ -6,7 +6,7 @@ input {
   file {
     path => "{{ item.path }}"
     type => "{{ item.type }}"
-    sincedb_path => "{{ logstash_log_dir }}/.{{ item.type }}sincedb"
+    sincedb_path => "/dev/null"
   }
 }
 {%   endfor %}
