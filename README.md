@@ -40,8 +40,9 @@ logstash_plugins:
   - logstash-filter-elasticsearch
   - logstash-filter-json_encode
   - logstash-filter-translate
-  - logstash-filter-zeromq
+#  - logstash-filter-zeromq
   - logstash-output-jira
+  - logstash-output-slack
 logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
 logstash_version: 1.5
 ````
