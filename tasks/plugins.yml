@@ -6,5 +6,6 @@
 - name: plugins | installing logstash plugins
   command: /opt/logstash/bin/plugin install {{ item }}
   notify: restart logstash
+  always_run: true  #allows checks and diffs to pass
   with_items: logstash_plugins
   when: item not in logstash_plugins_installed.stdout
