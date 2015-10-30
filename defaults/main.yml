@@ -6,7 +6,7 @@ logstash_config_dir: /etc/logstash/conf.d
 logstash_base_configs:
   - 000_inputs
 #  - 001_filters
-  - 002_metrics  #comment out if metrics for logstash processing are not required..good for keeping track of throughput
+#  - 002_metrics  #comment out if metrics for logstash processing are not required..good for keeping track of throughput...removed because of incompatabilities w/ES 2.x
   - 999_outputs
 logstash_base_file_inputs:
   - path: /var/log/nginx/access.log

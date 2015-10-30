@@ -6,7 +6,7 @@ Installs logstash https://www.elastic.co/products/logstash
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
@@ -20,7 +20,7 @@ logstash_config_dir: /etc/logstash/conf.d
 logstash_base_configs:
   - 000_inputs
 #  - 001_filters
-  - 002_metrics  #comment out if metrics for logstash processing are not required..good for keeping track of throughput
+#  - 002_metrics  #comment out if metrics for logstash processing are not required..good for keeping track of throughput...removed because of incompatabilities w/ES 2.x
   - 999_outputs
 logstash_base_file_inputs:
   - path: /var/log/nginx/access.log
@@ -50,7 +50,7 @@ logstash_version: 1.5
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
