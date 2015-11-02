@@ -7,7 +7,11 @@
   command: update-rc.d -f logstash-web remove
 
 - name: restart logstash
-  service: name=logstash state=restarted
+  service:
+    name: logstash
+    state: restarted
 
 - name: stop logstash-web
-  service: name=logstash-web state=stopped
+  service:
+    name: logstash-web
+    state: stopped

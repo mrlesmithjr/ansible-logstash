@@ -1,15 +1,24 @@
 ---
 - name: centos | installing logstash rpm key
-  rpm_key: key="https://packages.elasticsearch.org/GPG-KEY-elasticsearch" state=present
+  rpm_key:
+    key: "{{ logstash_repo_key }}"
+    state: present
 
 - name: centos | enabling logstash repository
-  template: src=logstash_repo.j2 dest=/etc/yum.repos.d/logstash.repo
+  template:
+    src: logstash_repo.j2
+    dest: /etc/yum.repos.d/logstash.repo
 
 - name: centos | installing logstash
-  yum: name={{ item }} state=latest
+  yum:
+    name: "{{ item }}"
+    state: latest
   with_items:
     - logstash
     - java-1.7.0-openjdk
 
 - name: centos | enabling logstash on boot and start
-  service: name=logstash state=started enabled=yes
+  service:
+    name: logstash
+    state: started
+    enabled: yes
