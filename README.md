@@ -31,6 +31,7 @@ logstash_base_file_inputs:
     type: postfix-log
   - path: /var/log/redis/redis-server.log
     type: redis-server
+logstash_deb_repo: 'deb http://packages.elastic.co/logstash/{{ logstash_version }}/debian stable main'
 logstash_folder: /opt/logstash
 logstash_base_outputs:
   - output: redis
@@ -43,8 +44,9 @@ logstash_plugins:
 #  - logstash-filter-zeromq
   - logstash-output-jira
   - logstash-output-slack
+logstash_repo_key: https://packages.elasticsearch.org/GPG-KEY-elasticsearch
 logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
-logstash_version: 1.5
+logstash_version: 2.1
 ````
 
 Dependencies
