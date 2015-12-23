@@ -28,7 +28,7 @@ logstash_plugins:
   - logstash-filter-json_encode
   - logstash-filter-translate
 #  - logstash-filter-zeromq
-  - logstash-output-jira
+#  - logstash-output-jira
   - logstash-output-slack
 logstash_repo_key: https://packages.elasticsearch.org/GPG-KEY-elasticsearch
 logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
