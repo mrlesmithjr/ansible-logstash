@@ -1,14 +1,13 @@
 #FROM mrlesmithjr/ansible:ubuntu-12.04
-FROM mrlesmithjr/ansible
+#FROM mrlesmithjr/ansible:ubuntu-14.04
+FROM mrlesmithjr/ubuntu-ansible
 
 MAINTAINER mrlesmithjr@gmail.com
 
-# Install packages
-RUN apt-get update && apt-get install -y \
-  curl \
-  git \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+#Installs git
+RUN apt-get update && apt-get install -y git curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install gosu
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
