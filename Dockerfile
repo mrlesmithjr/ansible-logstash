@@ -1,13 +1,9 @@
-#FROM mrlesmithjr/ansible:ubuntu-12.04
-#FROM mrlesmithjr/ansible:ubuntu-14.04
 FROM mrlesmithjr/ubuntu-ansible
 
 MAINTAINER mrlesmithjr@gmail.com
 
 #Installs git
-RUN apt-get update && apt-get install -y git curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && apt-get install -y git curl
 
 # Install gosu
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
@@ -31,8 +27,12 @@ COPY playbook.yml /opt/ansible-playbooks/
 # Run Ansible playbook to install logstash
 RUN ansible-playbook -i "localhost," -c local /opt/ansible-playbooks/playbook.yml
 
-# Clean up APT
-RUN apt-get clean
+# Cleanup
+RUN apt-get clean -y && \
+    apt-get autoremove -y
+
+# Cleanup
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV PATH /opt/logstash/bin:$PATH
 
