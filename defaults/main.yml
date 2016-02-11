@@ -34,3 +34,4 @@ logstash_plugins:
 logstash_repo_key: https://packages.elasticsearch.org/GPG-KEY-elasticsearch
 logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
 logstash_version: 2.1
+#logstash_version: 1.5
