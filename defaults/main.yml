@@ -32,6 +32,8 @@ logstash_plugins:
 #  - logstash-output-jira
   - logstash-output-slack
 logstash_repo_key: https://packages.elastic.co/GPG-KEY-elasticsearch
-logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
-logstash_version: 2.1
+logstash_server_fqdn: 'logstash.{{ pri_domain_name }}'  #defines logstash server to send to...fqdn or localhost
+logstash_version: 2.2
+#logstash_version: 2.1
 #logstash_version: 1.5
+pri_domain_name: 'example.org'

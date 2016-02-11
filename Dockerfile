@@ -19,7 +19,7 @@ RUN arch="$(dpkg --print-architecture)" \
 RUN mkdir -p /opt/ansible-playbooks/roles
 
 # Clone GitHub Repo
-RUN git clone --depth=50 --branch=2.1 https://github.com/mrlesmithjr/ansible-logstash.git /opt/ansible-playbooks/roles/ansible-logstash
+RUN git clone --depth=50 --branch=2.2 https://github.com/mrlesmithjr/ansible-logstash.git /opt/ansible-playbooks/roles/ansible-logstash
 
 # Copy Ansible playbooks
 COPY playbook.yml /opt/ansible-playbooks/
