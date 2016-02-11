@@ -8,6 +8,19 @@ Requirements
 
 None
 
+Docker
+------
+Latest version
+
+````
+docker run -d mrlesmithjr/logstash -f /etc/logstash/conf.d
+````
+Specific version  
+````
+docker run -d mrlesmithjr/logstash:2.2 -f /etc/logstash/conf.d
+````
+The included configurations are very basic so you will want to modify the config or create a new config and pass the path as above examples.  
+
 Role Variables
 --------------
 
