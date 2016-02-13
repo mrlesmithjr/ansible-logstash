@@ -6,7 +6,25 @@ Installs logstash https://www.elastic.co/products/logstash
 Requirements
 ------------
 
-None
+Default config if config_logstash=true is to open tcp/udp 10514 because ports < 1024 require root access.  
+Configure clients to send to udp/tcp 10514.  
+You can configure rsyslog to listen on tcp/udp 514 and redirect rsyslog to send to localhost on tcp/udp 10514
+to accomodate clients which cannot send to a different port. See example below.  
+###### /etc/rsyslog.d/50-default.conf
+tcp
+````
+*.* @@localhost:10514
+````
+udp
+````
+*.* @localhost:10514
+````
+
+Vagrant
+-------
+````
+vagrant up
+````
 
 Docker
 ------
@@ -18,8 +36,7 @@ docker run -d mrlesmithjr/logstash -f /etc/logstash/conf.d
 Specific version  
 ````
 docker run -d mrlesmithjr/logstash:2.2 -f /etc/logstash/conf.d
-````
-The included configurations are very basic so you will want to modify the config or create a new config and pass the path as above examples.  
+````  
 
 Role Variables
 --------------
@@ -44,6 +61,21 @@ logstash_base_file_inputs:
     type: postfix-log
   - path: /var/log/redis/redis-server.log
     type: redis-server
+logstash_base_inputs:  #define inputs below to configure
+  - prot: tcp
+    port: 10514  #gets around port < 1024 (Note...Configure clients to send to 10514 instead of default 514)
+    type: syslog
+  - prot: udp
+    port: 10514  #gets around port < 1024 (Note...Configure clients to send to 10514 instead of default 514)
+    type: syslog
+#  - type: beats
+#    port: 5044
+#  - type: redis
+#    batch_count: 1000
+#    host: '{{ logstash_server_fqdn }}'
+#    threads: 2
+#  - type: syslog
+#    port: 514  #reminder....ports < 1024 require root access..
 logstash_deb_repo: 'deb http://packages.elastic.co/logstash/{{ logstash_version }}/debian stable main'
 logstash_folder: /opt/logstash
 logstash_base_outputs:
@@ -51,15 +83,20 @@ logstash_base_outputs:
     output_host: '{{ logstash_server_fqdn }}'
 logstash_log_dir: /var/log/logstash
 logstash_plugins:
+  - logstash-codec-nmap
   - logstash-filter-elasticsearch
   - logstash-filter-json_encode
   - logstash-filter-translate
 #  - logstash-filter-zeromq
-  - logstash-output-jira
+  - logstash-input-beats
+#  - logstash-output-jira
   - logstash-output-slack
-logstash_repo_key: https://packages.elasticsearch.org/GPG-KEY-elasticsearch
-logstash_server_fqdn: logstash.example.org  #defines logstash server to send to...fqdn or localhost
-logstash_version: 2.1
+logstash_repo_key: https://packages.elastic.co/GPG-KEY-elasticsearch
+logstash_server_fqdn: 'logstash.{{ pri_domain_name }}'  #defines logstash server to send to...fqdn or localhost
+logstash_version: 2.2
+#logstash_version: 2.1
+#logstash_version: 1.5
+pri_domain_name: 'example.org'
 ````
 
 Dependencies
@@ -70,11 +107,28 @@ None
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: mrlesmithjr.logstash }
+#### GitHub
+````
+---
+- hosts: all
+  sudo: true
+  vars:
+    - config_logstash: true
+  roles:
+    - role: ansible-logstash
+  tasks:
+````
+#### Galaxy
+````
+---
+- hosts: all
+  sudo: true
+  vars:
+    - config_logstash: true
+  roles:
+    - role: mrlesmithjr.logstash
+  tasks:
+````
 
 License
 -------

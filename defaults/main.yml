@@ -17,6 +17,21 @@ logstash_base_file_inputs:
     type: postfix-log
   - path: /var/log/redis/redis-server.log
     type: redis-server
+logstash_base_inputs:  #define inputs below to configure
+  - prot: tcp
+    port: 10514  #gets around port < 1024 (Note...Configure clients to send to 10514 instead of default 514)
+    type: syslog
+  - prot: udp
+    port: 10514  #gets around port < 1024 (Note...Configure clients to send to 10514 instead of default 514)
+    type: syslog
+#  - type: beats
+#    port: 5044
+#  - type: redis
+#    batch_count: 1000
+#    host: '{{ logstash_server_fqdn }}'
+#    threads: 2
+#  - type: syslog
+#    port: 514  #reminder....ports < 1024 require root access..
 logstash_deb_repo: 'deb http://packages.elastic.co/logstash/{{ logstash_version }}/debian stable main'
 logstash_folder: /opt/logstash
 logstash_base_outputs:
@@ -29,6 +44,7 @@ logstash_plugins:
   - logstash-filter-json_encode
   - logstash-filter-translate
 #  - logstash-filter-zeromq
+  - logstash-input-beats
 #  - logstash-output-jira
   - logstash-output-slack
 logstash_repo_key: https://packages.elastic.co/GPG-KEY-elasticsearch
