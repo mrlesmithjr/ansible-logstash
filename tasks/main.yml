@@ -5,7 +5,7 @@
     - logstash
   when: ansible_os_family == "Debian"
 
-- include: centos.yml
+- include: redhat.yml
   tags:
     - logstash
   when: ansible_os_family == "RedHat"
