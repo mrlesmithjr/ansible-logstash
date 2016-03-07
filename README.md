@@ -22,8 +22,13 @@ udp
 
 Vagrant
 -------
+Spin up a Vagrant test environment  
 ````
 vagrant up
+````
+When done testing you can tear-down  
+````
+./cleanup.sh
 ````
 
 Docker
