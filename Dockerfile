@@ -1,9 +1,21 @@
-FROM mrlesmithjr/ubuntu-ansible
+FROM ubuntu:14.04
 
-MAINTAINER mrlesmithjr@gmail.com
+MAINTAINER Larry Smith Jr. <mrlesmithjr@gmail.com>
 
-#Installs git
-RUN apt-get update && apt-get install -y git curl
+#Update apt-cache
+RUN apt-get update
+
+#Install pre-reqs for Ansible
+RUN apt-get -y install curl git software-properties-common
+
+#Adding Ansible ppa
+RUN apt-add-repository ppa:ansible/ansible
+
+#Update apt-cache
+RUN apt-get update
+
+#Install Ansible
+RUN apt-get -y install ansible
 
 # Install gosu
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
@@ -16,22 +28,22 @@ RUN arch="$(dpkg --print-architecture)" \
 	&& chmod +x /usr/local/bin/gosu
 
 # Create Ansible Folder
-RUN mkdir -p /opt/ansible-playbooks/roles
-
-# Clone GitHub Repo
-RUN git clone --depth=50 --branch=2.2 https://github.com/mrlesmithjr/ansible-logstash.git /opt/ansible-playbooks/roles/ansible-logstash
+RUN mkdir -p /opt/ansible_tasks
 
 # Copy Ansible playbooks
-COPY playbook.yml /opt/ansible-playbooks/
+COPY playbook.yml requirements.yml /opt/ansible_tasks/
 
-# Run Ansible playbook to install logstash
-RUN ansible-playbook -i "localhost," -c local /opt/ansible-playbooks/playbook.yml
+#Install Ansible role(s)
+RUN ansible-galaxy install -r /opt/ansible_tasks/requirements.yml
 
-# Cleanup
-RUN apt-get clean -y && \
-    apt-get autoremove -y
+#Run Ansible playbook
+RUN ansible-playbook -c local /opt/ansible_tasks/playbook.yml
 
-# Cleanup
+#Clean-up packages
+RUN apt-get -y clean && \
+    apt-get -y autoremove
+
+#Clean-up temp files
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV PATH /opt/logstash/bin:$PATH
