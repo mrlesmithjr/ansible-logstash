@@ -37,7 +37,7 @@ COPY playbook.yml requirements.yml /opt/ansible_tasks/
 RUN ansible-galaxy install -r /opt/ansible_tasks/requirements.yml
 
 #Run Ansible playbook
-RUN ansible-playbook -c local /opt/ansible_tasks/playbook.yml
+RUN ansible-playbook -i "localhost," -c local /opt/ansible_tasks/playbook.yml
 
 #Clean-up packages
 RUN apt-get -y clean && \
