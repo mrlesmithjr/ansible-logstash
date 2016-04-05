@@ -31,3 +31,9 @@
     replace: 'start on never'
   notify: stop logstash-web
   when: logstash_web.stat.exists
+
+- name: debian | ensuring logstash is started and enabled on boot
+  service:
+    name: logstash
+    state: started
+    enabled: yes

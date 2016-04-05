@@ -27,7 +27,7 @@
     - java
   when: ansible_distribution == "Fedora"
 
-- name: centos | enabling logstash on boot and start
+- name: redhat | ensuring logstash is started and enabled on boot
   service:
     name: logstash
     state: started
