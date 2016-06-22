@@ -17,7 +17,7 @@
   with_items:
     - 'logstash'
     - 'default-jre-headless'
-  notify: init logstash
+  notify: "init logstash"
 
 - name: debian | checking for logstash-web
   stat:
