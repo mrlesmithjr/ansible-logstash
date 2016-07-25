@@ -39,7 +39,7 @@ logstash_base_outputs:
     output_host: '{{ logstash_server_fqdn }}'
 logstash_log_dir: '/var/log/logstash'
 logstash_plugins:
-  - 'logstash-codec-nmap'
+#  - 'logstash-codec-nmap'
   - 'logstash-filter-elasticsearch'
   - 'logstash-filter-json_encode'
   - 'logstash-filter-translate'
