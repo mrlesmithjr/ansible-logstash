@@ -2,11 +2,14 @@
 
 ## [Unreleased](https://github.com/mrlesmithjr/ansible-logstash/tree/HEAD)
 
-[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.4.0...HEAD)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.4.0-1...HEAD)
 
 **Closed issues:**
 
 - Cleanup/remove Docker related items [\#1](https://github.com/mrlesmithjr/ansible-logstash/issues/1)
+
+## [v0.4.0-1](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.4.0-1) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.4.0...v0.4.0-1)
 
 ## [v0.4.0](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.4.0) (2016-10-06)
 [Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.3.4...v0.4.0)
