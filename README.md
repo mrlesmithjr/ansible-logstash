@@ -81,7 +81,7 @@ logstash_base_inputs:  #define inputs below to configure
 #    threads: '2'
 #  - type: 'syslog'
 #    port: '514'  #reminder....ports < 1024 require root access..
-logstash_deb_repo: 'deb {{ logstash_repo_url }}/{{ logstash_version }}/debian stable main'
+logstash_deb_repo: 'deb {{ logstash_repo_url }}/{{ logstash_major_ver }}/debian stable main'
 logstash_folder: '/opt/logstash'
 logstash_base_outputs:
   - output: 'redis'
@@ -99,9 +99,9 @@ logstash_plugins:
 logstash_repo_key: 'https://packages.elastic.co/GPG-KEY-elasticsearch'
 logstash_repo_url: 'http://packages.elastic.co/logstash'
 logstash_server_fqdn: 'logstash.{{ pri_domain_name }}'  #defines logstash server to send to...fqdn or localhost
-logstash_version: '2.2'
-#logstash_version: '2.1'
-#logstash_version: '1.5'
+logstash_major_ver: '2.2'
+#logstash_major_ver: '2.1'
+#logstash_major_ver: '1.5'
 pri_domain_name: 'example.org'
 ````
 
