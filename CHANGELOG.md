@@ -1,16 +1,31 @@
 # Change Log
 
-## [v0.1.5](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.1.5) (2016-02-11)
-[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.1.4...v0.1.5)
+## [v0.4.0](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.4.0) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.3.4...v0.4.0)
 
-## [v0.1.4](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.1.4) (2016-02-11)
-[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.1.3...v0.1.4)
+## [v0.3.4](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.3.4) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.3.3...v0.3.4)
 
-## [v0.1.3](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.1.3) (2016-02-11)
-[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.1.2...v0.1.3)
+## [v0.3.3](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.3.3) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.3.2...v0.3.3)
 
-## [v0.1.2](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.1.2) (2015-12-23)
-[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.1.1...v0.1.2)
+## [v0.3.2](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.3.2) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.3.1...v0.3.2)
+
+## [v0.3.1](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.3.1) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.3.0...v0.3.1)
+
+## [v0.3.0](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.3.0) (2016-10-06)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.2.2...v0.3.0)
+
+## [v0.2.2](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.2.2) (2016-02-11)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.2.1...v0.2.2)
+
+## [v0.2.1](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.2.1) (2016-02-11)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.2.0...v0.2.1)
+
+## [v0.2.0](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.2.0) (2016-02-11)
+[Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.1.1...v0.2.0)
 
 ## [v0.1.1](https://github.com/mrlesmithjr/ansible-logstash/tree/v0.1.1) (2015-11-02)
 [Full Changelog](https://github.com/mrlesmithjr/ansible-logstash/compare/v0.1.0...v0.1.1)
