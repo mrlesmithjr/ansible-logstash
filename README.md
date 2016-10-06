@@ -79,7 +79,7 @@ logstash_deb_repo: 'deb https://packages.elastic.co/logstash/{{ logstash_major_v
 logstash_folder: '/opt/logstash'
 logstash_log_dir: '/var/log/logstash'
 logstash_major_ver: '2.3'  # Define major version to install
-logstash_minor_ver: '1:2.3.0-1'  # Define minor version to install
+logstash_minor_ver: '1:2.3.1-1'  # Define minor version to install
 logstash_plugins:
 #  - 'logstash-codec-nmap'
   - 'logstash-filter-elasticsearch'
