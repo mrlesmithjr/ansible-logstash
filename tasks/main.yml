@@ -5,6 +5,7 @@
     prompt: >
          "Node Does Not Meet Minimum Recommend Memory Requirements of
          {{ logstash_min_memory_required }}MB"
+    seconds: 10
   when: ansible_memtotal_mb < logstash_min_memory_required
 
 - include: set_facts.yml
