@@ -35,6 +35,7 @@ logstash_base_inputs:  #define inputs below to configure
 logstash_base_outputs:
   - output: 'redis'
     output_host: '{{ logstash_server_fqdn }}'
+logstash_custom_outputs: []
 logstash_deb_repo: 'deb https://artifacts.elastic.co/packages/{{ logstash_major_ver }}/apt stable main'
 logstash_folder: '/opt/logstash'
 logstash_log_dir: '/var/log/logstash'
@@ -59,3 +60,6 @@ logstash_repo_key: 'https://artifacts.elastic.co/GPG-KEY-elasticsearch'
 logstash_repo_url: 'https://artifacts.elastic.co/packages/{{ logstash_major_ver }}/yum'
 logstash_server_fqdn: 'logstash.{{ pri_domain_name }}'  #defines logstash server to send to...fqdn or localhost
 pri_domain_name: 'example.org'
+
+openjdk_version: 8
+logstash_install_java: true
