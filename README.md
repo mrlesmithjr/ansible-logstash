@@ -123,6 +123,27 @@ logstash_custom_outputs:
       - 'port => "12201"'    
 ```
 
+Additional variables for customized configs:
+
+```yaml
+
+logstash_custom_inputs: 
+  - input: someinput
+    lines:
+      - 'somekey => "value"'
+
+logstash_custom_filters: 
+  - filter: somefilter
+    lines:
+      - 'somekey => "value"'
+  
+logstash_custom_outputs: 
+  - output: someoutput
+    lines:
+      - 'somekey => "value"'  
+
+```
+
 Dependencies
 ------------
 

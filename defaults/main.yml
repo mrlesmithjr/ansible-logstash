@@ -32,10 +32,26 @@ logstash_base_inputs:  #define inputs below to configure
 #    threads: '2'
 #  - type: 'syslog'
 #    port: '514'  #reminder....ports < 1024 require root access..
+
+logstash_custom_inputs: []
+  # - input: someinput
+  #   lines:
+  #     - 'somekey => "value"'
+
+logstash_custom_filters: []
+  # - filter: somefilter
+  #   lines:
+  #     - 'somekey => "value"'
+
 logstash_base_outputs:
   - output: 'redis'
     output_host: '{{ logstash_server_fqdn }}'
+
 logstash_custom_outputs: []
+  # - output: someoutput
+  #   lines:
+  #     - 'somekey => "value"'
+
 logstash_deb_repo: 'deb https://artifacts.elastic.co/packages/{{ logstash_major_ver }}/apt stable main'
 logstash_folder: '/opt/logstash'
 logstash_log_dir: '/var/log/logstash'

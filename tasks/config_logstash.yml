@@ -44,3 +44,8 @@
   with_items:
     - '/opt/logstash/lib/logstash/outputs/elasticsearch'
     - '/opt/logstash/patterns'
+
+- name: config_logstash | test logstash configuration
+  shell: "{{ logstash_bin }} -t -f {{ logstash_config_dir }} --path.settings /etc/logstash/"
+  changed_when: false
+  when: logstash_major_ver == '5.x'
