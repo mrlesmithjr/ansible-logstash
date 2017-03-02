@@ -133,8 +133,7 @@ logstash_custom_inputs:
       - 'somekey => "value"'
 
 logstash_custom_filters: 
-  - filter: somefilter
-    lines:
+  - lines:
       - 'somekey => "value"'
   
 logstash_custom_outputs: 

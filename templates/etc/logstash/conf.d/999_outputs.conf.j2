@@ -31,11 +31,19 @@ output {
 {%   for item in logstash_custom_outputs %}
 
 output {
+  {% if item.if_condition is defined %}
+  if {{ item.if_condition }} {
+  {% endif %}
+
   {{ item.output }} {
   {% for line in item.lines %}
       {{ line }}
   {% endfor %}
   }
+
+  {% if item.if_condition is defined %}
+  }
+  {% endif %}
 }
 
 {%   endfor %}

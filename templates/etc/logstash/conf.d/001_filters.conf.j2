@@ -2,11 +2,9 @@
 {%   for item in logstash_custom_filters %}
 
 filter {
-  {{ item.filter }} {
   {% for line in item.lines %}
       {{ line }}
   {% endfor %}
-  }
 }
 {%   endfor %}
 {% endif %}
