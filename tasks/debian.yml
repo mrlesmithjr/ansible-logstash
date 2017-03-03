@@ -18,8 +18,9 @@
 
 - name: debian | installing java
   apt:
-    name: "default-jre-headless"
+    name: "openjdk-{{ openjdk_version }}-jre-headless"
     state: "present"
+  when: logstash_install_java
 
 - name: debian | Installing Logstash
   apt:

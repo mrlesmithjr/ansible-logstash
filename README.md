@@ -26,28 +26,38 @@ send to a different port. See example below:
 Vagrant
 -------
 Spin up a Vagrant test environment  
-````
-vagrant up
-````
+
+    vagrant up
+
 When done testing you can tear-down  
-````
-./cleanup.sh
-````
+
+    ./cleanup.sh
 
 Role Variables
 --------------
 
-```
+
+```yaml
+
 ---
 # defaults file for ansible-logstash
 clear_logstash_config: false  #defines if logstash_config_dir should be cleared out
 config_logstash: false  #defines if logstash should be configured
+openjdk_version: 8
+logstash_install_java: true
+
 logstash_config_dir: '/etc/logstash/conf.d'
+
+# These are the templates files that will be used later by vars
+# logstash_base_file_inputs, logstash_base_inputs
+# logstash_base_outputs, logstash_custom_outputs
+
 logstash_base_configs:
   - '000_inputs'
 #  - '001_filters'
 #  - '002_metrics'  #comment out if metrics for logstash processing are not required..good for keeping track of throughput...removed because of incompatabilities w/ES 2.x
   - '999_outputs'
+
 logstash_base_file_inputs:
   - path: '/var/log/nginx/access.log'
     type: 'nginx-access'
@@ -75,6 +85,7 @@ logstash_base_inputs:  #define inputs below to configure
 logstash_base_outputs:
   - output: 'redis'
     output_host: '{{ logstash_server_fqdn }}'
+    
 logstash_deb_repo: 'deb https://artifacts.elastic.co/packages/{{ logstash_major_ver }}/apt stable main'
 logstash_folder: '/opt/logstash'
 logstash_log_dir: '/var/log/logstash'
@@ -99,6 +110,39 @@ logstash_server_fqdn: 'logstash.{{ pri_domain_name }}'  #defines logstash server
 pri_domain_name: 'example.org'
 ```
 
+Use your own outputs:
+
+Example:
+
+```
+
+logstash_custom_outputs:
+  - output: 'gelf'
+    lines:
+      - 'host => "localhost"'
+      - 'port => "12201"'    
+```
+
+Additional variables for customized configs:
+
+```yaml
+
+logstash_custom_inputs: 
+  - input: someinput
+    lines:
+      - 'somekey => "value"'
+
+logstash_custom_filters: 
+  - lines:
+      - 'somekey => "value"'
+  
+logstash_custom_outputs: 
+  - output: someoutput
+    lines:
+      - 'somekey => "value"'  
+
+```
+
 Dependencies
 ------------
 
@@ -108,7 +152,9 @@ Example Playbook
 ----------------
 
 * GitHub
-```
+
+```yaml
+
 ---
 - hosts: all
   sudo: true
@@ -118,8 +164,11 @@ Example Playbook
     - role: ansible-logstash
   tasks:
 ```
+
 * Galaxy
-```
+
+```yaml
+
 ---
 - hosts: all
   sudo: true
