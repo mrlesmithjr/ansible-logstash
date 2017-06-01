@@ -15,10 +15,12 @@
   apt_repository:
     repo: "{{ logstash_deb_repo }}"
     state: "present"
+  register: "_logstash_repo_added"    
 
-- name: Run "apt-get update" 
+- name: debian | Updating apt-cache 
   apt:
     update_cache: yes
+  when: _logstash_repo_added['changed']
 
 - name: debian | installing java
   apt:
