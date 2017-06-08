@@ -22,6 +22,14 @@
     state: "present"
   when: logstash_install_java
 
+- name: debian | assigning Pin priority 1001 on APT Preferences
+  template:
+    src: "etc/apt/preferences.d/logstash.j2"
+    dest: "/etc/apt/preferences.d/logstash"
+    user: root
+    group: root
+    mode: 0644
+
 - name: debian | Installing Logstash
   apt:
     name: "logstash={{ logstash_minor_ver }}"
