@@ -34,6 +34,7 @@
   apt:
     name: "logstash={{ logstash_minor_ver }}"
     state: "present"
+    force: yes  # This is required to allow downgrade if user desires to move back to previous version
   # notify: "init logstash"
   # when: ansible_distribution !=
 
