@@ -77,8 +77,7 @@ logstash_major_ver: '5.x'
 # Defines the miniumum amount of memory (in MB) required to effectively run Logstash
 logstash_min_memory_required: 1024
 
-# Define minor version to install
-logstash_minor_ver: '1:5.2.0-1'
+logstash_minor_ver: '1:5.3.3-1'  # Define minor version to install also defines Pin priority on APT Preferences.d
 
 logstash_plugins:
   # - 'logstash-codec-nmap'
