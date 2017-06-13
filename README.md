@@ -104,6 +104,10 @@ logstash_plugins:
   - 'logstash-input-beats'
 #  - 'logstash-output-jira'
   - 'logstash-output-slack'
+logstash_plugin_cmd_vars: "JARS_SKIP='true'"
+# Other examples:
+# Options to work with proxy
+# logstash_plugin_cmd_vars: "JARS_SKIP='true' JRUBY_OPTS='-J-Dhttps.proxyHost=user:password@proxy.com -J-Dhttps.proxyPort=8080 -J-Dhttp.proxyHost=user:password@proxy.com -J-Dhttp.proxyPort=8080'"
 logstash_repo_key: 'https://artifacts.elastic.co/GPG-KEY-elasticsearch'
 logstash_repo_url: 'https://artifacts.elastic.co/packages/{{ logstash_major_ver }}/yum'
 logstash_server_fqdn: 'logstash.{{ pri_domain_name }}'  #defines logstash server to send to...fqdn or localhost
@@ -114,32 +118,32 @@ Use your own outputs:
 
 Example:
 
-```
+```yaml
 
 logstash_custom_outputs:
   - output: 'gelf'
     lines:
       - 'host => "localhost"'
-      - 'port => "12201"'    
+      - 'port => "12201"'
 ```
 
 Additional variables for customized configs:
 
 ```yaml
 
-logstash_custom_inputs: 
+logstash_custom_inputs:
   - input: someinput
     lines:
       - 'somekey => "value"'
 
-logstash_custom_filters: 
+logstash_custom_filters:
   - lines:
       - 'somekey => "value"'
-  
-logstash_custom_outputs: 
+
+logstash_custom_outputs:
   - output: someoutput
     lines:
-      - 'somekey => "value"'  
+      - 'somekey => "value"'
 
 ```
 
@@ -188,6 +192,7 @@ Author Information
 ------------------
 
 Larry Smith Jr.
+
 - @mrlesmithjr
 - http://everythingshouldbevirtual.com
 - mrlesmithjr [at] gmail.com

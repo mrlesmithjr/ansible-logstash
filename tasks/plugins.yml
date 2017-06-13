@@ -10,7 +10,7 @@
   changed_when: false
 
 - name: plugins | installing logstash plugins
-  command: "{{ logstash_plugin_bin }} install {{ item }}"
+  shell: "{{ logstash_plugin_cmd_vars }} {{ logstash_plugin_bin }} install {{ item }}"
   notify: "restart logstash"
   with_items: '{{ logstash_plugins }}'
   when: item not in logstash_plugins_installed.stdout
