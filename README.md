@@ -26,11 +26,11 @@ send to a different port. See example below:
 Vagrant
 -------
 
-Spin up a Vagrant test environment  
+Spin up a Vagrant test environment
 
     vagrant up
 
-When done testing you can tear-down  
+When done testing you can tear-down
 
     ./cleanup.sh
 
@@ -43,17 +43,19 @@ Use your own outputs:
 
 Example:
 
-```
+```yaml
+
 logstash_custom_outputs:
   - output: 'gelf'
     lines:
       - 'host => "localhost"'
-      - 'port => "12201"'    
+      - 'port => "12201"'
 ```
 
 Additional variables for customized configs:
 
-```
+```yaml
+
 logstash_custom_inputs:
   - input: someinput
     lines:
@@ -66,7 +68,8 @@ logstash_custom_filters:
 logstash_custom_outputs:
   - output: someoutput
     lines:
-      - 'somekey => "value"'  
+      - 'somekey => "value"'
+
 ```
 
 Dependencies
