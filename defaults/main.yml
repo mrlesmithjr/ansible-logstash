@@ -122,5 +122,4 @@ logstash_repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
 logstash_server_fqdn: "logstash.{{ logstash_pri_domain_name }}"
 logstash_pri_domain_name: example.org
 
-openjdk_version: "8"
 logstash_install_java: true
