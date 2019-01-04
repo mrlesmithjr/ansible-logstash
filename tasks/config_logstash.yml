@@ -14,8 +14,7 @@
     state: directory
     owner: logstash
     group: logstash
-    recurse: true
-    mode: u=rw,g=r,o=r
+    mode: u=rwx,g=rx,o=rx
   become: true
 
 - name: config_logstash | removing original logstash config if it exists
