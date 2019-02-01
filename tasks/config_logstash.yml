@@ -50,6 +50,12 @@
     - /opt/logstash/lib/logstash/outputs/elasticsearch
     - /opt/logstash/patterns
 
+- name: config_logstash | add the logstash user to system groups
+  user:
+    name: "{{ logstash_system_user }}"
+    groups: "{{ logstash_system_groups | join(',') }}"
+    append: no
+
 - name: config_logstash | test logstash configuration
   shell: "{{ logstash_bin }} -t -f {{ logstash_config_dir }} --path.settings /etc/logstash/"
   become: true
