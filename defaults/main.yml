@@ -123,3 +123,6 @@ logstash_server_fqdn: "logstash.{{ logstash_pri_domain_name }}"
 logstash_pri_domain_name: example.org
 
 logstash_install_java: true
+
+# Defines the system groups the logstash user should be part of
+logstash_system_groups: []
