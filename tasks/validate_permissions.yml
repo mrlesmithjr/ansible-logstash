@@ -4,7 +4,7 @@
     path: "{{ logstash_folder }}"
     state: directory
     recurse: true
-    owner: logstash
-    group: logstash
+    owner: "{{ logstash_system_user }}"
+    group: "{{ logstash_system_group }}"
   become: true
   notify: restart logstash

@@ -12,8 +12,8 @@
   file:
     path: "{{ logstash_config_dir }}"
     state: directory
-    owner: logstash
-    group: logstash
+    owner: "{{ logstash_system_user }}"
+    group: "{{ logstash_system_group }}"
     mode: u=rwx,g=rx,o=rx
   become: true
 
@@ -28,8 +28,8 @@
   template:
     src: "{{ 'etc/logstash/conf.d/' + item + '.conf.j2' }}"
     dest: "{{ logstash_config_dir + '/' + item + '.conf' }}"
-    owner: logstash
-    group: logstash
+    owner: "{{ logstash_system_user }}"
+    group: "{{ logstash_system_group }}"
     mode: u=rw,g=r,o=r
     #validate: "/opt/logstash/bin/logstash -tf %s" # commented due to error during tests with file not found.
   become: true
@@ -41,8 +41,8 @@
   file:
     path: "{{ item }}"
     state: directory
-    owner: logstash
-    group: logstash
+    owner: "{{ logstash_system_user }}"
+    group: "{{ logstash_system_group }}"
     mode: 0775
     recurse: true
   become: true
