@@ -16,16 +16,16 @@
     logstash_openjdk_version: "7"
   when: >
     (ansible_distribution == "Debian" and
-    distribution_version is version('8', '<=')) or
+    ansible_distribution_version is version('8', '<=')) or
     (ansible_distribution == "Ubuntu" and
-    distribution_version is version('14', '<='))
+    ansible_distribution_version is version('14', '<='))
 
 - name: set_facts | Setting Logstash OpenJDK Version
   set_fact:
     logstash_openjdk_version: "8"
   when: >
     (ansible_distribution == "Debian" and
-    distribution_version is version('8', '>')) or
+    ansible_distribution_version is version('8', '>')) or
     (ansible_distribution == "Ubuntu" and
-    distribution_version is version('14', '>')) or
+    ansible_distribution_version is version('14', '>')) or
     ansible_os_family == "RedHat"

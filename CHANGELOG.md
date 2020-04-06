@@ -1,3 +1,9 @@
+commit 48bdff6693be6a4aff5c0660eae73fea22a6f44e
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Sun Apr 5 23:08:42 2020 -0400
+
+    Fixing syntax issue with conditionals
+
 commit 562df9a8a5bd9b23806a718f08352b773a25eb62
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Sun Apr 5 23:03:17 2020 -0400
