@@ -8,27 +8,27 @@
     seconds: 10
   when: ansible_memtotal_mb < logstash_min_memory_required
 
-- include: set_facts.yml
+- include_tasks: set_facts.yml
 
-- include: debian.yml
+- include_tasks: debian.yml
   tags:
     - logstash
   when: ansible_os_family == "Debian"
 
-- include: redhat.yml
+- include_tasks: redhat.yml
   tags:
     - logstash
   when: ansible_os_family == "RedHat"
 
-- include: plugins.yml
+- include_tasks: plugins.yml
   tags:
     - logstash
     - logstash_plugins
 
-- include: config_logstash.yml
+- include_tasks: config_logstash.yml
   when: config_logstash
 
-- include: validate_permissions.yml
+- include_tasks: validate_permissions.yml
   tags:
     - config_logstash
     - logstash

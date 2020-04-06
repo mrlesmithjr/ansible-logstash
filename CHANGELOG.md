@@ -1,3 +1,15 @@
+commit bc3a466693698bdbc15e98bec7709788877111f9
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Sun Apr 5 23:02:56 2020 -0400
+
+    Fixing set facts
+
+commit d76f355c3f2c331272594209af1fda6b0ca831d6
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Sun Apr 5 22:41:14 2020 -0400
+
+    Changed to latest version and commented out plugins
+
 commit d206271a30c07e8cc6bb57da1af3a944de23c0bb
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Sun Apr 5 22:20:31 2020 -0400
