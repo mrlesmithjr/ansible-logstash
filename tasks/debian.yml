@@ -22,7 +22,7 @@
   become: true
   register: _logstash_repo_added
 
-- name: debian | Updating apt-cache
+- name: debian | Updating apt-cache # noqa 503
   apt:
     update_cache: true
   become: true

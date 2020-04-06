@@ -78,35 +78,36 @@ logstash_folder: /opt/logstash
 logstash_log_dir: /var/log/logstash
 
 # Define major version to install
-logstash_major_ver: 5.x
+logstash_major_ver: 7.x
 
 # Defines the miniumum amount of memory (in MB) required to effectively run Logstash
 logstash_min_memory_required: 1024
 
 # Define minor version to install also defines Pin priority on APT Preferences.d
-logstash_minor_ver: 1:5.6.14-1
+logstash_minor_ver: 1:7.6.2-1
 
 logstash_plugins:
-  - name: logstash-codec-nmap
-    state: absent
-  - name: logstash-filter-elasticsearch
-    state: present
-  - name: logstash-filter-json_encode
-    state: present
-  - name: logstash-filter-multiline
-    state: absent
-  - name: logstash-filter-translate
-    state: present
-  - name: logstash-filter-zeromq
-    state: absent
-  - name: logstash-input-beats
-    state: present
-  - name: logstash-output-email
-    state: present
-  - name: logstash-output-jira
-    state: absent
-  - name: logstash-output-slack
-    state: absent
+  []
+  # - name: logstash-codec-nmap
+  #   state: absent
+  # - name: logstash-filter-elasticsearch
+  #   state: present
+  # - name: logstash-filter-json_encode
+  #   state: present
+  # - name: logstash-filter-multiline
+  #   state: absent
+  # - name: logstash-filter-translate
+  #   state: present
+  # - name: logstash-filter-zeromq
+  #   state: absent
+  # - name: logstash-input-beats
+  #   state: present
+  # - name: logstash-output-email
+  #   state: present
+  # - name: logstash-output-jira
+  #   state: absent
+  # - name: logstash-output-slack
+  #   state: absent
 
 # https://github.com/elastic/logstash/issues/6528
 logstash_plugin_cmd_vars: "JARS_SKIP='true'"
