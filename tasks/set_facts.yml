@@ -16,7 +16,7 @@
     logstash_openjdk_version: "7"
   when: >
     (ansible_distribution == "Debian" and
-    distribution_version is version('8', '<=') or
+    distribution_version is version('8', '<=')) or
     (ansible_distribution == "Ubuntu" and
     distribution_version is version('14', '<='))
 
@@ -25,7 +25,7 @@
     logstash_openjdk_version: "8"
   when: >
     (ansible_distribution == "Debian" and
-    distribution_version is version('8', '>') or
+    distribution_version is version('8', '>')) or
     (ansible_distribution == "Ubuntu" and
-    distribution_version is version('14', '>') or
+    distribution_version is version('14', '>')) or
     ansible_os_family == "RedHat"
