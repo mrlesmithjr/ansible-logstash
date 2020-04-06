@@ -1,23 +1,14 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [ansible-logstash](#ansible-logstash)
-  - [Build Status](#build-status)
-  - [Requirements](#requirements)
-  - [Role Variables](#role-variables)
-  - [Dependencies](#dependencies)
-  - [Example Playbook](#example-playbook)
-  - [License](#license)
-  - [Author Information](#author-information)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # ansible-logstash
 
-An [Ansible](https://www.ansible.com) role that Installs/configures [Logstash](https://www.elastic.co/products/logstash)
+Ansible role to install/configure Logstash
 
 ## Build Status
+
+### GitHub Actions
+
+![Molecule Test](https://github.com/mrlesmithjr/ansible-logstash/workflows/Molecule%20Test/badge.svg)
+
+### Travis CI
 
 [![Build Status](https://travis-ci.org/mrlesmithjr/ansible-logstash.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-logstash)
 
@@ -43,10 +34,12 @@ send to a different port. See example below:
 *.* @localhost:10514
 ```
 
+For any required Ansible roles, review:
+[requirements.yml](requirements.yml)
+
 ## Role Variables
 
-[default vars](./defaults/main.yml)
-
+[defaults/main.yml](defaults/main.yml)
 Use your own outputs:
 
 Example:
@@ -79,11 +72,9 @@ logstash_custom_outputs:
 
 ## Dependencies
 
-None
-
 ## Example Playbook
 
-[Example Playbook](./playbook.yml)
+[playbook.yml](playbook.yml)
 
 ## License
 
@@ -93,6 +84,8 @@ MIT
 
 Larry Smith Jr.
 
-- [@mrlesmithjr](https://www.twitter.com/mrlesmithjr)
-- [EverythingShouldBeVirtual](http://everythingshouldbevirtual.com)
+- [@mrlesmithjr](https://twitter.com/mrlesmithjr)
 - [mrlesmithjr@gmail.com](mailto:mrlesmithjr@gmail.com)
+- [http://everythingshouldbevirtual.com](http://everythingshouldbevirtual.com)
+
+> NOTE: Repo has been created/updated using [https://github.com/mrlesmithjr/cookiecutter-ansible-role](https://github.com/mrlesmithjr/cookiecutter-ansible-role) as a template.

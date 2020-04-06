@@ -1,8 +1,7 @@
 ---
-- hosts: all
-  sudo: true
-  vars:
-    config_logstash: true
-  roles:
-    - role: ansible-logstash
+- name: Example Playbook
+  hosts: all
   tasks:
+    - name: Include ansible-logstash
+      include_role:
+        name: ansible-logstash
