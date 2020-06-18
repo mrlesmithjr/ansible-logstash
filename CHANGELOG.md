@@ -1,3 +1,18 @@
+commit cefedeb9eb883b2987c803e47feb749d988b8502
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Thu Jun 18 19:55:55 2020 -0400
+
+    Updated Python Reqs
+    
+    Also had to update CI tests to account for new Python reqs and
+    processes. Ubuntu 20.04 Molecule test added as well.
+
+commit b204d8933ad653c0ac75ca7c935da94dddda28da
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Sun Apr 5 23:25:03 2020 -0400
+
+    Fixing Debian10 OpenJDK version
+
 commit 7eaa9c25761a0dc67cb83a58307f8622536a3422
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Sun Apr 5 23:14:53 2020 -0400
