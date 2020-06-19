@@ -7,7 +7,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.5, 3.6, 3.7]
+        python-version: [3.6, 3.7]
 
     steps:
       - uses: actions/checkout@v1
@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install docker
-          python -m pip install --upgrade pip
-          pip3 install -r requirements.txt
+          python -m pip install --upgrade pip pip-tools
+          pip-sync requirements.txt requirements-dev.txt
           ansible --version
           molecule --version
       - name: Test with molecule
@@ -34,3 +34,4 @@ jobs:
           molecule test --scenario-name fedora
           molecule test --scenario-name ubuntu1604
           molecule test --scenario-name ubuntu1804
+          molecule test --scenario-name ubuntu2004

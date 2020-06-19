@@ -1,7 +1,9 @@
 ---
 - name: debian | Installing Pre-Reqs
   apt:
-    name: ["apt-transport-https"]
+    name:
+      - apt-transport-https
+      - gnupg
     state: present
   become: true
   register: result

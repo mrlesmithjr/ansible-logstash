@@ -11,7 +11,8 @@ before_script:
     musl-dev libffi-dev openssl-dev openssh
   - docker info
   - python3 --version
-  - pip3 install -r requirements.txt
+  - pip3 install --upgrade pip pip-tools
+  - pip-sync requirements.txt requirements-dev.txt
   - ansible --version
   - molecule --version
 
@@ -26,3 +27,4 @@ molecule:
     - molecule test --scenario-name fedora
     - molecule test --scenario-name ubuntu1604
     - molecule test --scenario-name ubuntu1804
+    - molecule test --scenario-name ubuntu2004
