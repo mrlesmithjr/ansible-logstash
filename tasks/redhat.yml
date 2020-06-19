@@ -1,11 +1,14 @@
 ---
-- name: redhat | installing logstash rpm key
+- name: redhat | Copying Elasticsearch GPG Key
+  copy:
+    src: GPG-KEY-elasticsearch
+    dest: /tmp/GPG-KEY-elasticsearch
+
+- name: redhat | Adding Elasticsearch GPG Key
   rpm_key:
-    key: "{{ logstash_repo_key }}"
+    key: /tmp/GPG-KEY-elasticsearch
     state: present
   become: true
-  register: result
-  until: result is successful
 
 - name: redhat | enabling logstash repository
   template:
