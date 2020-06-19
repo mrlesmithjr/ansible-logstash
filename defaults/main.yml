@@ -84,7 +84,7 @@ logstash_major_ver: 7.x
 logstash_min_memory_required: 1024
 
 # Define minor version to install also defines Pin priority on APT Preferences.d
-logstash_minor_ver: 1:7.6.2-1
+logstash_minor_ver: 1:7.8.0-1
 
 logstash_plugins:
   []
