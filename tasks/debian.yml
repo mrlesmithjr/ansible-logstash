@@ -9,13 +9,16 @@
   register: result
   until: result is successful
 
-- name: debian | installing logstash repo key
+- name: debian | Copying Elasticsearch GPG Key
+  copy:
+    src: GPG-KEY-elasticsearch
+    dest: /tmp/GPG-KEY-elasticsearch
+
+- name: debian | Adding Elasticsearch GPG Key
   apt_key:
-    url: "{{ logstash_repo_key }}"
+    file: /tmp/GPG-KEY-elasticsearch
     state: present
   become: true
-  register: result
-  until: result is successful
 
 - name: debian | adding logstash repo
   apt_repository:
