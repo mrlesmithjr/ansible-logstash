@@ -15,7 +15,7 @@
 
 - name: redhat | installing java
   yum:
-    name: ["{{ 'java-1.' + logstash_openjdk_version + '.0-openjdk' }}"]
+    name: ["{{ 'java-1.' ~ logstash_openjdk_version ~ '.0-openjdk' }}"]
     state: present
   become: true
   register: result
