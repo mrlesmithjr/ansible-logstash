@@ -1,3 +1,9 @@
+commit 5afa3dcedaf5f96a0fa68d22d9edf0864252df3b
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Wed Aug 26 23:40:00 2020 -0400
+
+    Updated CI tests
+
 commit 2bf070421b853d706858a9d56b611060d1cdc4c2
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Wed Aug 26 23:38:50 2020 -0400
