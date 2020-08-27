@@ -73,7 +73,7 @@ logstash_custom_outputs:
   #   lines:
   #     - 'somekey => "value"'
 
-logstash_deb_repo: "{{ 'deb https://artifacts.elastic.co/packages/' + logstash_major_ver + '/apt stable main' }}"
+logstash_deb_repo: "{{ 'deb https://artifacts.elastic.co/packages/' ~ logstash_major_ver ~ '/apt stable main' }}"
 logstash_folder: /opt/logstash
 logstash_log_dir: /var/log/logstash
 
@@ -115,7 +115,7 @@ logstash_plugin_cmd_vars: "JARS_SKIP='true'"
 # Options to work with proxy
 # logstash_plugin_cmd_vars: "JARS_SKIP='true' JRUBY_OPTS='-J-Dhttps.proxyHost=user:password@proxy.com -J-Dhttps.proxyPort=8080 -J-Dhttp.proxyHost=user:password@proxy.com -J-Dhttp.proxyPort=8080'"
 
-logstash_redhat_repo_url: "{{ 'https://artifacts.elastic.co/packages/' + logstash_major_ver + '/yum' }}"
+logstash_redhat_repo_url: "{{ 'https://artifacts.elastic.co/packages/' ~ logstash_major_ver ~ '/yum' }}"
 
 logstash_repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
 

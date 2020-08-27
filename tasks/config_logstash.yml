@@ -19,15 +19,15 @@
 
 - name: config_logstash | removing original logstash config if it exists
   file:
-    path: "{{ logstash_config_dir + '/logstash.conf' }}"
+    path: "{{ logstash_config_dir ~ '/logstash.conf' }}"
     state: absent
   become: true
   notify: restart logstash
 
 - name: config_logstash | configuring logstash
   template:
-    src: "{{ 'etc/logstash/conf.d/' + item + '.conf.j2' }}"
-    dest: "{{ logstash_config_dir + '/' + item + '.conf' }}"
+    src: "{{ 'etc/logstash/conf.d/' ~ item ~ '.conf.j2' }}"
+    dest: "{{ logstash_config_dir ~ '/' ~ item ~ '.conf' }}"
     owner: "{{ logstash_system_user }}"
     group: "{{ logstash_system_group }}"
     mode: u=rw,g=r,o=r
